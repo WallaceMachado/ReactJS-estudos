@@ -1,13 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
-
+//componente principal - cria  pagina principal
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Olá mundo!
+          Olá mundo!!!
         </p>
         <a
           className="App-link"

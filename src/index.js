@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// renderiza o app e coloca dentro do root em public/index.html
 ReactDOM.render(
   <React.StrictMode>
     <App />

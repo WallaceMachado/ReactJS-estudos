@@ -1,24 +1,61 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-const Bemvindo = (props) => {
-return (<div> 
-<h2>Bem-vindo {props.nome}</h2>
-<h2>Tenho: {props.idade}</h2>
-</div>)
+class Equipe extends Component{
+      render(){//método obrigatório
+        return(
 
+          <div> 
+            <Sobre nome={this.props.nome} idade={this.props.cargo} cargo={this.props.idade}/>
+
+            <Social/>
+         <hr/>
+          </div>
+        );
+      }
+
+}
+
+class Sobre extends Component{
+
+  render(){//método obrigatório
+    return(
+
+      <div> 
+        
+            <h2>Bem-vindo {this.props.nome}</h2>
+            <h3>Sou: {this.props.cargo}</h3>
+            <h3>Tenho: {this.props.idade}anos </h3>
+          
+        
+      </div>
+    );
+  }
+
+}
+
+const Social =() =>{
+  return(
+  <div> 
+        
+            <a>Facebook </a>
+            <a>Instagram </a>
+            <a>LinkedIn  </a>
+          
+        
+      </div>
+  );
 }
 
 //componente principal - cria  pagina principal
 function App() {
   return(
     <div>
-      Olá Mundo!
-      <Bemvindo nome="Lucas" idade="24"/>
-      <Bemvindo nome="sara" idade="21"/>
-      <Bemvindo nome="leo" idade="18"/>
-   <h1>Olá mundo</h1>
+      <h1>Conheça nossa equipe:</h1>
+      <Equipe nome="Lucas" idade="24" cargo="programador"/>
+     
+   
    </div>
-  )
+  );
 }
 
 export default App;

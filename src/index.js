@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Social from './Social';
 import reportWebVitals from './reportWebVitals';
 
 // renderiza o app e coloca dentro do root em public/index.html
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Social />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root')// está em public/index.html
 );
 
 // If you want to start measuring performance in your app, pass a function

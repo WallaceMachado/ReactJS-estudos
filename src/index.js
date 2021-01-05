@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Social from './Social';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 // renderiza o app e coloca dentro do root em public/index.html
 ReactDOM.render(
   <React.StrictMode>
-    <Social />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')// está em public/index.html
 );

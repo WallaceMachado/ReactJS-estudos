@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-import TodoList from './components/TodoList';
+import Routes from './routes';
 
 
 class App extends Component{
-    render(){
+     render(){
         return(
             <div>
-                <h1>Lista de Tarefas</h1>
-                <TodoList/>
-            </div>
-        )
+               <Routes/> 
+            </div>         
+        );
     }
 }
 

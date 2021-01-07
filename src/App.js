@@ -1,52 +1,51 @@
 import React, { Component } from 'react';
+import './style.css';
+
+
+//https://sujeitoprogramador.com/rn-api/?api=posts
+
 
 class App extends Component{
 
     constructor(props){
         super(props);
-        this.state = { 
-            form:{
-                nome: '',
-                email: '',
-                senha: '',
-                sexo: ''
-            }
-         }
+        this.state = {
+            nutri: []
+        };
 
-         this.dadosForm = this.dadosForm.bind(this);
     }
 
-    dadosForm(e){// e é um parametro automatico que recbe as props 
-       let form = this.state.form; 
-       form[e.target.name] = e.target.value;
-       this.setState({form: form});
+    componentDidMount(){
+        let url = 'https://sujeitoprogramador.com/rn-api/?api=posts';
+        fetch(url)//faz a requisição pela url
+        .then((r)=> r.json()) //then recebe a resposta, usamos para acessa a resposta do metodo/ .json transforma a resposta em um objeto json
+        .then((json)=>{// o then só recebe a resposta em caso de sucesso na execução do metodo
+            let state = this.state;
+            state.nutri = json;// a variável nutri do state desta classe recebe o objeto json da requisição http
+            this.setState(state);
+            console.log(json);
+        })        
+
     }
 
-    render(){
+     render(){
         return(
-            <div>
-                <h2>Login</h2>
-                Nome:
-                <input type="text" name="nome" value={this.state.form.nome} 
-                       onChange={this.dadosForm}/><br/>
-                Email:
-                <input type="email" name="email" value={this.state.form.email} 
-                       onChange={this.dadosForm} /> <br/>
-                Senha:
-                <input type="text" name="senha" value={this.state.form.senha}
-                       onChange={this.dadosForm} /><br/>
+            <div className="container">
+                <header>
+                    <strong>React Nutri</strong>
+                </header>
 
-                Sexo:
-                <select name="sexo" value={this.state.form.sexo} onChange={this.dadosForm}>
-                    <option value="masculino">Masculino</option>
-                    <option value="feminino">Feminino</option>
-                </select>
+                {this.state.nutri.map((item)=>{// map varre o array
+                    return(
+                        <article key={item.id} className="post">
+                            <strong className="titulo"> {item.titulo} </strong>
+                            <img src={item.capa} className="capa" />
+                            <p className="subtitulo">{item.subtitulo}</p>
+                            <a className="botao" href="#">Acessar</a>
+                        </article>
+                    );
+                })}
 
-                <div>
-                    <h3>{this.state.form.email}</h3>
-                    <h3>{this.state.form.senha}</h3>
-                    <h3>{this.state.form.sexo}</h3>
-                </div>
             </div>         
         );
     }
